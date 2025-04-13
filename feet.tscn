@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqvccx46ecpcv"]
+
+[ext_resource type="Script" uid="uid://c4r2ee15hxp0n" path="res://player_feet.gd" id="1_7flkp"]
+[ext_resource type="Texture2D" uid="uid://cg8g6qkukqcyc" path="res://PlayerFoot.png" id="2_yxkbi"]
+
+[node name="Feet" type="Node2D"]
+script = ExtResource("1_7flkp")
+
+[node name="left" type="Sprite2D" parent="."]
+position = Vector2(-11, 0)
+texture = ExtResource("2_yxkbi")
+
+[node name="right" type="Sprite2D" parent="."]
+position = Vector2(11, 0)
+texture = ExtResource("2_yxkbi")
