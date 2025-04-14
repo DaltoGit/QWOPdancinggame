@@ -1,4 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhtofubtphpv0"]
+[gd_scene load_steps=8 format=4 uid="uid://dhtofubtphpv0"]
+
+[ext_resource type="Script" uid="uid://gcv2ppm3mjbr" path="res://menu.gd" id="1_mae5d"]
+[ext_resource type="Texture2D" uid="uid://di8pc5bqtwb5r" path="res://ice.png" id="1_ouk20"]
+[ext_resource type="Texture2D" uid="uid://cg8g6qkukqcyc" path="res://PlayerFoot.png" id="2_mae5d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vsb4k"]
 font_size = 25
@@ -8,34 +12,57 @@ font_color = Color(0.497474, 0.497474, 0.497474, 1)
 font_size = 38
 font_color = Color(4.52429e-06, 0.705888, 0.70999, 1)
 
-[node name="Control" type="Control"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4hy44"]
+texture = ExtResource("1_ouk20")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ytr4m"]
+sources/0 = SubResource("TileSetAtlasSource_4hy44")
+
+[node name="mainmenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mae5d")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 513.0
-offset_top = 324.0
-offset_right = 743.0
-offset_bottom = 359.0
+offset_left = 468.0
+offset_top = 347.0
+offset_right = 698.0
+offset_bottom = 382.0
 rotation = 0.00321437
 text = "press space to play"
 label_settings = SubResource("LabelSettings_vsb4k")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 508.0
-offset_top = 163.0
-offset_right = 684.0
-offset_bottom = 216.0
+offset_left = 489.0
+offset_top = 158.0
+offset_right = 665.0
+offset_bottom = 211.0
 rotation = -0.311496
 text = "ice skater"
 label_settings = SubResource("LabelSettings_lti8b")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(646, 251)
-zoom = Vector2(2, 2)
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
+position = Vector2(-64, -64)
+scale = Vector2(8, 8)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAQAAAAAAAAAAAAJAAUAAAAAAAAAAAAIAAUAAAAAAAAAAAAHAAUAAAAAAAAAAAAGAAUAAAAAAAAAAAAFAAUAAAAAAAAAAAAEAAUAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAAAAAAAAAADAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAHAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAEAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_ytr4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(480, 320)
+scale = Vector2(8, 8)
+texture = ExtResource("2_mae5d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(672, 320)
+scale = Vector2(8, 8)
+texture = ExtResource("2_mae5d")

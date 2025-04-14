@@ -1,8 +1,8 @@
 extends Node2D
 
 const mSpeed: float=10.0
-const fSpeed: float=0.005
-const fallDistance: float=50.0
+const fSpeed: float=0.02
+const fallDistance: float=60.0
 
 var cFoot=false
 
@@ -27,7 +27,6 @@ func _process(delta):
 	
 	if cFoot: rMovement+=inputvector*mSpeed
 	else: lMovement+=inputvector*mSpeed
-	
 	lFoot.velocity+=lMovement
 	rFoot.velocity+=rMovement
 	
