@@ -1,8 +1,10 @@
 extends Node2D
 
-const mSpeed: float=50.0
-const fSpeed: float=1.2
+const mSpeed: float=10.0
+const fSpeed: float=0.005
 const fallDistance: float=50.0
+
+var cFoot=false
 
 var lFoot=null
 var rFoot=null
@@ -13,14 +15,21 @@ func _ready() -> void:
 	return
 
 func _process(delta):
-	var lMovement: Vector2=Input.get_vector("lLeft", "lRight", "lUp", "lDown")
-	var rMovement: Vector2=Input.get_vector("rLeft", "rRight", "rUp", "rDown")
+	var inputvector: Vector2=Input.get_vector("lLeft", "lRight", "lUp", "lDown")
 	
 	var feetposvector: Vector2=lFoot.position-rFoot.position
 	if feetposvector.length_squared()>fallDistance**2: print("you lost!")
 	
-	lFoot.velocity=feetposvector*fSpeed+lMovement*mSpeed
-	rFoot.velocity=(-feetposvector)*fSpeed+rMovement*mSpeed
+	var lMovement: Vector2=feetposvector*fSpeed
+	var rMovement: Vector2=(-feetposvector)*fSpeed
+	
+	if Input.is_action_just_pressed("ui_accept"): cFoot=not cFoot
+	
+	if cFoot: rMovement+=inputvector*mSpeed
+	else: lMovement+=inputvector*mSpeed
+	
+	lFoot.velocity+=lMovement
+	rFoot.velocity+=rMovement
 	
 	lFoot.move_and_slide()
 	rFoot.move_and_slide()
