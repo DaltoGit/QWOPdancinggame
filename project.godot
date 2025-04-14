@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="QWOPdancinggame"
-run/main_scene="uid://bqc852ohtab5l"
+run/main_scene="uid://dhtofubtphpv0"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

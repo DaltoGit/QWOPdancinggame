@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhtofubtphpv0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vsb4k"]
+font_size = 25
+font_color = Color(0.497474, 0.497474, 0.497474, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lti8b"]
+font_size = 38
+font_color = Color(4.52429e-06, 0.705888, 0.70999, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 324.0
+offset_right = 743.0
+offset_bottom = 359.0
+rotation = 0.00321437
+text = "press space to play"
+label_settings = SubResource("LabelSettings_vsb4k")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 163.0
+offset_right = 684.0
+offset_bottom = 216.0
+rotation = -0.311496
+text = "ice skater"
+label_settings = SubResource("LabelSettings_lti8b")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(646, 251)
+zoom = Vector2(2, 2)
