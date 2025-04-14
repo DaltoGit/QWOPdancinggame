@@ -7,7 +7,7 @@ const fallDistance: float=60.0
 var cFoot=false
 
 var lFoot=null
-var rFoot=null
+var rFoot=null 
 
 func _ready() -> void:
 	lFoot=get_node("left")

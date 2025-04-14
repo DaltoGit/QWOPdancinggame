@@ -15,11 +15,11 @@ distance = -384.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h2yge"]
 normal = Vector2(1, 0)
-distance = -640.0
+distance = -576.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1bvp3"]
 normal = Vector2(-1, 0)
-distance = -640.0
+distance = -576.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lquwl"]
 normal = Vector2(0, 1)

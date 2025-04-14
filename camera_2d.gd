@@ -11,5 +11,5 @@ func _ready() -> void:
 func _process(delta):
 	var midpoint: Vector2=(lFoot.position+rFoot.position)/2
 	
-	position=midpoint
+	position.y=midpoint.y
 	return
