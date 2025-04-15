@@ -40,12 +40,12 @@ label_settings = SubResource("LabelSettings_vsb4k")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 489.0
-offset_top = 158.0
-offset_right = 665.0
-offset_bottom = 211.0
+offset_left = 394.0
+offset_top = 161.0
+offset_right = 882.0
+offset_bottom = 240.0
 rotation = -0.311496
-text = "ice skater"
+text = "getting over the pond"
 label_settings = SubResource("LabelSettings_lti8b")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

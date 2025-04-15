@@ -35,3 +35,5 @@ shape = SubResource("CapsuleShape2D_yxkbi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_yxkbi")
+
+[connection signal="move_camera" from="." to="Camera2D" method="_on_feet_move_camera"]
