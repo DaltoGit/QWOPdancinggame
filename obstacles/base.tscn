@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c8bpwudqjuo2b"]
+
+[node name="BASE-DO_NOT_USE" type="Node2D"]
+
+[node name="tilemap" type="TileMapLayer" parent="."]
+
+[node name="collision" type="StaticBody2D" parent="."]
+
+[node name="shape" type="CollisionShape2D" parent="collision"]
+
+[node name="kill" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="kill"]

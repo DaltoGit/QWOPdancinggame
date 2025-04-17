@@ -1,16 +1,18 @@
 extends Node2D
 
 const mSpeed: float=10.0
-const fSpeed: float=0.035
+const fSpeed: float=0.00000001
 const fallDistance: float=60.0
+const friction: float=0.99995
 
 signal lose
-signal move_camera
+signal movement_finished
 
 var cFoot: bool=false
 var midpoint: Vector2
+var premidpoint: Vector2
 var height: int=0
-var distance: int=0
+var distance: float=0.0
 
 var lFoot: Node
 var rFoot: Node
@@ -26,27 +28,26 @@ func _process(delta):
 	
 	var feetposvector: Vector2=lFoot.position-rFoot.position
 	if feetposvector.length_squared()>fallDistance**2: lose.emit()
-	
-	var lMovement: Vector2=feetposvector*fSpeed
-	var rMovement: Vector2=(-feetposvector)*fSpeed
+	var averagespeed: float=(lFoot.velocity.length_squared()+rFoot.velocity.length_squared())
+	var lMovement: Vector2=feetposvector*fSpeed*averagespeed
+	var rMovement: Vector2=(-feetposvector)*fSpeed*averagespeed
 	
 	if cFoot: rMovement+=inputvector*mSpeed
 	else: lMovement+=inputvector*mSpeed
 	lFoot.velocity+=lMovement
 	rFoot.velocity+=rMovement
+	lFoot.velocity*=friction
+	rFoot.velocity*=friction
 	
 	lFoot.move_and_slide()
 	rFoot.move_and_slide()
 	
-	midpoint=(lFoot.position+rFoot.position)/2
-	if midpoint.y<=-16: 
+	premidpoint=(lFoot.position+rFoot.position)/2
+	if premidpoint.y<=-16: 
 		height+=1
 		lFoot.position.y+=16
 		rFoot.position.y+=16
-	elif midpoint.y>0:
-		height-=1
-		lFoot.position.y-=16
-		rFoot.position.y-=16
 	midpoint=(lFoot.position+rFoot.position)/2
-	move_camera.emit(midpoint)
+	distance=midpoint.y-height*16
+	movement_finished.emit(midpoint, premidpoint, distance)
 	return

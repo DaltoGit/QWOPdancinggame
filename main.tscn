@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://bqc852ohtab5l"]
+[gd_scene load_steps=9 format=4 uid="uid://bqc852ohtab5l"]
 
 [ext_resource type="Script" uid="uid://dkwekpsoyl764" path="res://lose.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cqvccx46ecpcv" path="res://feet.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://di8pc5bqtwb5r" path="res://ice.png" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b2djfkinsy53h" path="res://obstacles.tscn" id="2_1bvp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2yge"]
 texture = ExtResource("2_0xm2m")
@@ -22,11 +23,15 @@ distance = -576.0
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_h2yge")
 
+[node name="obstaclehandler" parent="." instance=ExtResource("2_1bvp3")]
+position = Vector2(-64, -64)
+
 [node name="Feet" parent="." instance=ExtResource("1_ig7tw")]
 z_index = 1
 scale = Vector2(8, 8)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+z_index = -2
 scale = Vector2(8, 8)
 tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAD7/wIAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wAAAAAAAAAAAAD7////AAAAAAAAAAD7//7/AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAD8////AAAAAAAAAAD7//3/AAAAAAAAAAD8//3/AAAAAAAAAAD+//3/AAAAAAAAAAD9//3/AAAAAAAAAAD///3/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAADAAIAAAAAAAAAAAACAAIAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAD//wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAADAP//AAAAAAAAAAADAAEAAAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAACAP//AAAAAAAAAAD7//z/AAAAAAAAAAAEAPz/AAAAAAAAAAADAPz/AAAAAAAAAAACAPz/AAAAAAAAAAABAPz/AAAAAAAAAAAAAPz/AAAAAAAAAAD///z/AAAAAAAAAAD+//z/AAAAAAAAAAD9//z/AAAAAAAAAAD8//z/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_1bvp3")

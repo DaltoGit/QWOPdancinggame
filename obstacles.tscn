@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2djfkinsy53h"]
+
+[ext_resource type="Script" uid="uid://b674grcnnv1f8" path="res://obstacles.gd" id="1_g48ay"]
+
+[node name="obstaclehandler" type="Node2D"]
+scale = Vector2(8, 8)
+script = ExtResource("1_g48ay")
+
+[node name="obstacles" type="Node2D" parent="."]
+
+[node name="new" type="Node2D" parent="obstacles"]
+position = Vector2(0, -96)
+
+[node name="old" type="Node2D" parent="obstacles"]

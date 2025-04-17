@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqvccx46ecpcv"]
+[gd_scene load_steps=7 format=3 uid="uid://cqvccx46ecpcv"]
 
 [ext_resource type="Script" uid="uid://c4r2ee15hxp0n" path="res://player_feet.gd" id="1_7flkp"]
 [ext_resource type="Texture2D" uid="uid://cg8g6qkukqcyc" path="res://PlayerFoot.png" id="2_yxkbi"]
@@ -11,6 +11,9 @@ height = 24.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxkbi"]
 radius = 8.0
 height = 24.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yxkbi"]
+distance = -40.0
 
 [node name="Feet" type="Node2D"]
 script = ExtResource("1_7flkp")
@@ -36,4 +39,9 @@ shape = SubResource("CapsuleShape2D_yxkbi")
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_yxkbi")
 
-[connection signal="move_camera" from="." to="Camera2D" method="_on_feet_move_camera"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Camera2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_yxkbi")
+
+[connection signal="movement_finished" from="." to="Camera2D" method="_on_feet_movement_finished"]
