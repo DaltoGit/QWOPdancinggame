@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu3up1ch3j83s"]
+
+[sub_resource type="Gradient" id="Gradient_4touq"]
+colors = PackedColorArray(1, 0.151344, 0.108333, 1, 1, 1, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(2, 2)
+amount = 100
+lifetime = 2.0
+emission_shape = 1
+emission_sphere_radius = 128.0
+gravity = Vector2(0, -600)
+scale_amount_min = 50.0
+scale_amount_max = 100.0
+color_ramp = SubResource("Gradient_4touq")

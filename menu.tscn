@@ -10,7 +10,7 @@ font_color = Color(0.497474, 0.497474, 0.497474, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lti8b"]
 font_size = 38
-font_color = Color(4.52429e-06, 0.705888, 0.70999, 1)
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4hy44"]
 texture = ExtResource("1_ouk20")
@@ -31,9 +31,9 @@ script = ExtResource("1_mae5d")
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 468.0
-offset_top = 347.0
+offset_top = 427.0
 offset_right = 698.0
-offset_bottom = 382.0
+offset_bottom = 462.0
 rotation = 0.00321437
 text = "press space to play"
 label_settings = SubResource("LabelSettings_vsb4k")
