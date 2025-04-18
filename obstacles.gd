@@ -1,7 +1,7 @@
 extends Node2D
 
 const obstacleAmount: int=4
-const obstacleHeight: int=6
+const obstacleHeight: int=12
 var feet: Node
 var obstacles=[]
 var distance: int=0
