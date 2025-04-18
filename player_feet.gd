@@ -22,6 +22,13 @@ func _ready() -> void:
 	rFoot=get_node("right")
 	return
 
+func calculateFriction(vel: Vector2) -> Vector2:
+	var vellength=vel.length_squared()
+	if vellength<1:
+		return Vector2.ZERO
+	vellength=sqrt(vellength-1)*friction
+	return vel.normalized()*vellength
+
 func _process(delta):
 	var inputvector: Vector2=Input.get_vector("lLeft", "lRight", "lUp", "lDown")
 	if Input.is_action_just_pressed("ui_accept"): cFoot=not cFoot
@@ -36,8 +43,8 @@ func _process(delta):
 	else: lMovement+=inputvector*mSpeed
 	lFoot.velocity+=lMovement
 	rFoot.velocity+=rMovement
-	lFoot.velocity*=friction
-	rFoot.velocity*=friction
+	lFoot.velocity=calculateFriction(lFoot.velocity)
+	rFoot.velocity=calculateFriction(rFoot.velocity)
 	
 	lFoot.move_and_slide()
 	rFoot.move_and_slide()
