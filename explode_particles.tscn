@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cstcfd1a1vvgt"]
+
+[sub_resource type="Curve" id="Curve_nxi0d"]
+_data = [Vector2(0.00568181, 1), 0.0, 0.0, 0, 0, Vector2(0.960227, 0.438202), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_bi00v"]
+offsets = PackedFloat32Array(0.0021978, 1)
+colors = PackedColorArray(0.999686, 0.152381, 0.109187, 1, 1, 1, 0, 1)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 100
+explosiveness = 0.8
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+scale_amount_min = 50.0
+scale_amount_max = 100.0
+scale_amount_curve = SubResource("Curve_nxi0d")
+color_ramp = SubResource("Gradient_bi00v")
