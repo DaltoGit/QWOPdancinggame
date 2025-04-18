@@ -15,7 +15,7 @@ func _ready():
 	return
 
 func loadobstacle():
-	var newobstacle: PackedScene=obstacles[clamp(int(randfn(difficulty,obstacleAmount)),0,obstacleAmount-1)]
+	var newobstacle: PackedScene=obstacles[clamp(int(randfn(difficulty,obstacleAmount/4)),0,obstacleAmount-1)]
 	var oldobstacle: Node=get_node("obstacles/old/obstacle")
 	if oldobstacle:
 		get_node("obstacles/old").remove_child(oldobstacle)
