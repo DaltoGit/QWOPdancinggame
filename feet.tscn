@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqvccx46ecpcv"]
+[gd_scene load_steps=8 format=3 uid="uid://cqvccx46ecpcv"]
 
 [ext_resource type="Script" uid="uid://c4r2ee15hxp0n" path="res://player_feet.gd" id="1_7flkp"]
 [ext_resource type="Texture2D" uid="uid://cg8g6qkukqcyc" path="res://PlayerFoot.png" id="2_yxkbi"]
+[ext_resource type="Script" uid="uid://byvpl7gyi5sjx" path="res://line_2d.gd" id="3_mm8dw"]
 [ext_resource type="Script" uid="uid://boaua656y2n5e" path="res://camera_2d.gd" id="3_yxkbi"]
+[ext_resource type="Script" uid="uid://kcagu2lqojby" path="res://rtrail_2d.gd" id="4_vcyu5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7flkp"]
 radius = 8.0
@@ -21,6 +23,14 @@ position = Vector2(-12, 0)
 [node name="sprite" type="Sprite2D" parent="left"]
 texture = ExtResource("2_yxkbi")
 
+[node name="LtrailNode2D" type="Node2D" parent="left/sprite"]
+position = Vector2(0, 12)
+
+[node name="Ltrail2D" type="Line2D" parent="left/sprite/LtrailNode2D"]
+z_index = 3
+width = 3.0
+script = ExtResource("3_mm8dw")
+
 [node name="collision" type="CollisionShape2D" parent="left"]
 shape = SubResource("CapsuleShape2D_7flkp")
 
@@ -29,6 +39,14 @@ position = Vector2(12, 0)
 
 [node name="sprite" type="Sprite2D" parent="right"]
 texture = ExtResource("2_yxkbi")
+
+[node name="RtrailNode2D" type="Node2D" parent="right/sprite"]
+position = Vector2(0, 12)
+
+[node name="Rtrail2D" type="Line2D" parent="right/sprite/RtrailNode2D"]
+z_index = 3
+width = 3.0
+script = ExtResource("4_vcyu5")
 
 [node name="collision" type="CollisionShape2D" parent="right"]
 shape = SubResource("CapsuleShape2D_yxkbi")
