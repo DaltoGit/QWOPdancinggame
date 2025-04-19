@@ -9,6 +9,7 @@ offsets = PackedFloat32Array(0.0021978, 1)
 colors = PackedColorArray(0.999686, 0.152381, 0.109187, 1, 1, 1, 0, 1)
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(3, 4)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 100

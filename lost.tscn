@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0wn11mgudbv4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w22wu"]
+font_size = 43
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ugjck"]
+font_size = 25
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 284.0
+offset_top = 23.0
+offset_right = 485.0
+offset_bottom = 82.0
+text = "you lost :("
+label_settings = SubResource("LabelSettings_w22wu")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 155.0
+offset_top = 145.0
+offset_right = 505.0
+offset_bottom = 180.0
+text = "your score: ai forgot to count"
+label_settings = SubResource("LabelSettings_ugjck")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(399, 145)
+zoom = Vector2(1, 2)
