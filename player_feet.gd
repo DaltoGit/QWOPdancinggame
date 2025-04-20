@@ -5,6 +5,12 @@ const fSpeed: float=0.00000001
 const fallDistance: float=60.0
 const friction: float=0.99995
 
+func _input(event):
+	if running == false:
+		if event.is_action_pressed("ui_accept"):
+			get_tree().change_scene_to_file("res://main.tscn")
+
+
 signal lose
 signal movement_finished
 
