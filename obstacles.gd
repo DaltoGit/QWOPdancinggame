@@ -2,7 +2,6 @@ extends Node2D
 
 const obstacleAmount: int=4
 const obstacleHeight: int=12
-var feet: Node
 var obstacles=[]
 var distance: int=0
 var difficulty: int=0
@@ -10,7 +9,7 @@ var difficulty: int=0
 func _ready():
 	for i in range(obstacleAmount):
 		obstacles.append(load("res://obstacles/" + str(i) + ".tscn"))
-	feet = get_parent().get_node("Feet")
+	var feet: Node = get_parent().get_node("Feet/Feet")
 	feet.movement_finished.connect(on_movement_finished)
 	return
 
@@ -27,7 +26,7 @@ func loadobstacle():
 	obstacle.name="obstacle"
 	get_node("obstacles/new").add_child(obstacle)
 
-func on_movement_finished(midpoint, premidpoint, dis):
+func on_movement_finished(midpoint, premidpoint, run, dis):
 	if midpoint.y>premidpoint.y:
 		distance+=1
 		if distance==obstacleHeight:

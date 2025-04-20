@@ -10,6 +10,6 @@ script = ExtResource("1_g48ay")
 z_index = -1
 
 [node name="new" type="Node2D" parent="obstacles"]
-position = Vector2(0, -96)
+position = Vector2(0, -192)
 
 [node name="old" type="Node2D" parent="obstacles"]

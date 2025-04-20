@@ -5,8 +5,6 @@ const fSpeed: float=0.00000001
 const fallDistance: float=60.0
 const friction: float=0.99995
 
-
-
 signal lose
 signal movement_finished
 
@@ -15,6 +13,7 @@ var midpoint: Vector2
 var premidpoint: Vector2
 var height: int=0
 var distance: float=0.0
+var running: bool=true
 
 var lFoot: Node
 var rFoot: Node
@@ -36,7 +35,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"): cFoot=not cFoot
 	
 	var feetposvector: Vector2=lFoot.position-rFoot.position
-	if feetposvector.length_squared()>fallDistance**2: get_tree().change_scene_to_file("res://lost.tscn")
+	if feetposvector.length_squared()>fallDistance**2:
+		running=false
 	var averagespeed: float=(lFoot.velocity.length_squared()+rFoot.velocity.length_squared())
 	var lMovement: Vector2=feetposvector*fSpeed*averagespeed
 	var rMovement: Vector2=(-feetposvector)*fSpeed*averagespeed
@@ -48,8 +48,9 @@ func _process(delta):
 	lFoot.velocity=calculateFriction(lFoot.velocity)
 	rFoot.velocity=calculateFriction(rFoot.velocity)
 	
-	lFoot.move_and_slide()
-	rFoot.move_and_slide()
+	if running:
+		lFoot.move_and_slide()
+		rFoot.move_and_slide()
 	
 	premidpoint=(lFoot.position+rFoot.position)/2
 	if premidpoint.y<=-16: 
@@ -58,5 +59,5 @@ func _process(delta):
 		rFoot.position.y+=16
 	midpoint=(lFoot.position+rFoot.position)/2
 	distance=midpoint.y-height*16
-	movement_finished.emit(midpoint, premidpoint, distance)
+	movement_finished.emit(midpoint, premidpoint, running, distance)
 	return

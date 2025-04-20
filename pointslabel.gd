@@ -1,6 +1,7 @@
-extends Camera2D
+extends Label
 
+func _ready():
+	text="points: 0"
 
 func _on_feet_movement_finished(midpoint, premidpoint, running, dist) -> void:
-	if premidpoint.y*8<position.y: position.y=midpoint.y*8
-	return
+	text="points: "+str(int(-dist))
