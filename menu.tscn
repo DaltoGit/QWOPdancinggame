@@ -10,7 +10,7 @@ font_color = Color(0.497474, 0.497474, 0.497474, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lti8b"]
 font_size = 38
-font_color = Color(4.52429e-06, 0.705888, 0.70999, 1)
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4hy44"]
 texture = ExtResource("1_ouk20")
