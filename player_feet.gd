@@ -28,6 +28,8 @@ var rFoot: Node
 func _ready() -> void:
 	lFoot=get_node("left")
 	rFoot=get_node("right")
+	get_parent().get_node("Camera2D/alive").show()
+	get_parent().get_node("Camera2D/dead").hide()
 	return
 
 func calculateFriction(vel: Vector2) -> Vector2:
@@ -45,6 +47,8 @@ func _process(delta):
 	
 	if feetposvector.length_squared()>fallDistance**2 and not debug:
 		running=false
+		get_parent().get_node("Camera2D/alive").hide()
+		get_parent().get_node("Camera2D/dead").show()
 	
 	var averagespeed: float=(lFoot.velocity.length_squared()+rFoot.velocity.length_squared())
 	var lMovement: Vector2=feetposvector*fSpeed*averagespeed
