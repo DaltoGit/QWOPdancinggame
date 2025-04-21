@@ -1,7 +1,9 @@
 extends Line2D
 
-@export var length := 50
+@export var length := 15
+@export var trailspeed := 750
 var point := Vector2()
+@onready var foot: Node=get_parent().get_parent().get_parent()
 
 func _on_feet_movement_finished(midpoint, premidpoint, running, dist) -> void:
 	
@@ -16,8 +18,9 @@ func _on_feet_movement_finished(midpoint, premidpoint, running, dist) -> void:
 				var pointpos: Vector2=get_point_position(i)
 				pointpos.y+=16
 				set_point_position(i,pointpos)
-
-		add_point(point) 
+		
+		if foot.velocity.length_squared()>trailspeed**2: add_point(point)
+		else: clear_points()
 
 		while get_point_count()>length:
 			remove_point(0)

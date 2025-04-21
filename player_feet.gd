@@ -20,6 +20,7 @@ var premidpoint: Vector2
 var height: int=0
 var distance: float=0.0
 var running: bool=true
+@export var debug := true
 
 var lFoot: Node
 var rFoot: Node
@@ -41,8 +42,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"): cFoot=not cFoot
 	
 	var feetposvector: Vector2=lFoot.position-rFoot.position
-	if feetposvector.length_squared()>fallDistance**2:
+	
+	if feetposvector.length_squared()>fallDistance**2 and not debug:
 		running=false
+	
 	var averagespeed: float=(lFoot.velocity.length_squared()+rFoot.velocity.length_squared())
 	var lMovement: Vector2=feetposvector*fSpeed*averagespeed
 	var rMovement: Vector2=(-feetposvector)*fSpeed*averagespeed
