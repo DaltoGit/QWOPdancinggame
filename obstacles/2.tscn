@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgc3st3rd8nby"]
 
-[ext_resource type="Texture2D" uid="uid://dneekpgv5o826" path="res://numbers.png" id="1_ntwrx"]
+[ext_resource type="Texture2D" uid="uid://b7yyab5i7kewr" path="res://obstacletextures.png" id="1_ntwrx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iakmd"]
 texture = ExtResource("1_ntwrx")
@@ -10,7 +10,7 @@ texture = ExtResource("1_ntwrx")
 1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_lgmgn"]
-sources/0 = SubResource("TileSetAtlasSource_iakmd")
+sources/1 = SubResource("TileSetAtlasSource_iakmd")
 
 [node name="2" type="Node2D"]
 
