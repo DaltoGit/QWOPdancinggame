@@ -67,8 +67,14 @@ func _process(delta):
 	var lMovement: Vector2=feetposvector*fSpeed*averagespeed
 	var rMovement: Vector2=(-feetposvector)*fSpeed*averagespeed
 	
-	if cFoot: rMovement+=inputvector*mSpeed
-	else: lMovement+=inputvector*mSpeed
+	if cFoot: 
+		rMovement+=inputvector*mSpeed
+		rFoot.get_node("outline").show()
+		lFoot.get_node("outline").hide()
+	else: 
+		lMovement+=inputvector*mSpeed
+		rFoot.get_node("outline").hide()
+		lFoot.get_node("outline").show()
 	lFoot.velocity+=lMovement
 	rFoot.velocity+=rMovement
 	lFoot.velocity=calculateFriction(lFoot.velocity)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqvccx46ecpcv"]
+[gd_scene load_steps=13 format=3 uid="uid://cqvccx46ecpcv"]
 
 [ext_resource type="Script" uid="uid://c4r2ee15hxp0n" path="res://player_feet.gd" id="1_7flkp"]
 [ext_resource type="Texture2D" uid="uid://cg8g6qkukqcyc" path="res://PlayerFoot.png" id="2_yxkbi"]
 [ext_resource type="Script" uid="uid://byvpl7gyi5sjx" path="res://line_2d.gd" id="3_mm8dw"]
 [ext_resource type="Script" uid="uid://boaua656y2n5e" path="res://camera_2d.gd" id="3_yxkbi"]
+[ext_resource type="Texture2D" uid="uid://dfvdv77ppts1c" path="res://FootOutline.png" id="4_va3yr"]
 [ext_resource type="Script" uid="uid://b0inqreax8ncx" path="res://pointslabel.gd" id="5_vcyu5"]
 [ext_resource type="Script" uid="uid://20eefgro175l" path="res://xpoints.gd" id="6_e4el6"]
 
@@ -31,6 +32,7 @@ font_color = Color(0.498039, 0.498039, 0.498039, 1)
 z_index = 1
 scale = Vector2(8, 8)
 script = ExtResource("1_7flkp")
+debug = false
 
 [node name="left" type="CharacterBody2D" parent="Feet"]
 position = Vector2(-12, 0)
@@ -51,6 +53,10 @@ script = ExtResource("3_mm8dw")
 [node name="collision" type="CollisionShape2D" parent="Feet/left"]
 shape = SubResource("CapsuleShape2D_7flkp")
 
+[node name="outline" type="Sprite2D" parent="Feet/left"]
+z_index = 1
+texture = ExtResource("4_va3yr")
+
 [node name="right" type="CharacterBody2D" parent="Feet"]
 position = Vector2(12, 0)
 motion_mode = 1
@@ -69,6 +75,10 @@ script = ExtResource("3_mm8dw")
 
 [node name="collision" type="CollisionShape2D" parent="Feet/right"]
 shape = SubResource("CapsuleShape2D_yxkbi")
+
+[node name="outline" type="Sprite2D" parent="Feet/right"]
+z_index = 1
+texture = ExtResource("4_va3yr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 script = ExtResource("3_yxkbi")
