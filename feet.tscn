@@ -45,6 +45,7 @@ position = Vector2(0, 12)
 [node name="Ltrail2D" type="Line2D" parent="Feet/left/sprite/LtrailNode2D"]
 z_index = -1
 width = 3.0
+default_color = Color(0, 0.862745, 1, 1)
 script = ExtResource("3_mm8dw")
 
 [node name="collision" type="CollisionShape2D" parent="Feet/left"]
@@ -63,6 +64,7 @@ position = Vector2(0, 12)
 [node name="Rtrail2D" type="Line2D" parent="Feet/right/sprite/RtrailNode2D"]
 z_index = -1
 width = 3.0
+default_color = Color(0, 0.862745, 1, 1)
 script = ExtResource("3_mm8dw")
 
 [node name="collision" type="CollisionShape2D" parent="Feet/right"]
