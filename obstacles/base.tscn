@@ -1,13 +1,28 @@
-[gd_scene format=3 uid="uid://c8bpwudqjuo2b"]
+[gd_scene load_steps=4 format=3 uid="uid://c8bpwudqjuo2b"]
 
-[node name="BASE-DO_NOT_USE" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://b7yyab5i7kewr" path="res://obstacletextures.png" id="1_vc1nm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o32cd"]
+texture = ExtResource("1_vc1nm")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p4aqi"]
+sources/0 = SubResource("TileSetAtlasSource_o32cd")
+
+[node name="obstacle" type="Node2D"]
 
 [node name="tilemap" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_p4aqi")
 
 [node name="collision" type="StaticBody2D" parent="."]
+process_mode = 4
 
 [node name="shape" type="CollisionShape2D" parent="collision"]
 
 [node name="kill" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill"]
+process_mode = 4
