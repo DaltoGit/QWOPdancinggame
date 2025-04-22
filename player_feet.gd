@@ -39,6 +39,17 @@ func calculateFriction(vel: Vector2) -> Vector2:
 	vellength=sqrt(vellength-1)*friction
 	return vel.normalized()*vellength
 
+func collisionstuff(foot: Node):
+	for i in foot.get_slide_collision_count():
+		var collision=foot.get_slide_collision(i)
+		var norm: Vector2=collision.get_normal()
+		var tempvec: Vector2
+		tempvec.y = norm.x
+		tempvec.x = norm.y
+		if tempvec.x<0: tempvec.x*=-1
+		if tempvec.y<0: tempvec.y*=-1
+		foot.velocity*=tempvec
+
 func _process(delta):
 	var inputvector: Vector2=Input.get_vector("lLeft", "lRight", "lUp", "lDown")
 	if Input.is_action_just_pressed("ui_accept"): cFoot=not cFoot
@@ -64,6 +75,8 @@ func _process(delta):
 	if running:
 		lFoot.move_and_slide()
 		rFoot.move_and_slide()
+		collisionstuff(lFoot)
+		collisionstuff(rFoot)
 	
 	premidpoint=(lFoot.position+rFoot.position)/2
 	if premidpoint.y<=-16: 

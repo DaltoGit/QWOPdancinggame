@@ -31,7 +31,6 @@ font_color = Color(0.498039, 0.498039, 0.498039, 1)
 z_index = 1
 scale = Vector2(8, 8)
 script = ExtResource("1_7flkp")
-debug = false
 
 [node name="left" type="CharacterBody2D" parent="Feet"]
 position = Vector2(-12, 0)
