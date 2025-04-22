@@ -14,7 +14,7 @@ func _ready():
 	return
 
 func loadobstacle():
-	var newobstacle: PackedScene=obstacles[clamp(int(randfn(difficulty,obstacleAmount/4)),0,obstacleAmount-1)]
+	var newobstacle: PackedScene=obstacles[clamp(int(randfn(difficulty,obstacleAmount/2)),0,obstacleAmount-1)]
 	var oldobstacle: Node=get_node("obstacles/old/obstacle")
 	if oldobstacle:
 		get_node("obstacles/old").remove_child(oldobstacle)
@@ -27,9 +27,17 @@ func loadobstacle():
 	get_node("obstacles/new").add_child(obstacle)
 
 func on_movement_finished(midpoint, premidpoint, run, dis):
+	difficulty=int(-dis/400)
+	print(difficulty)
 	if midpoint.y>premidpoint.y:
 		distance+=1
 		if distance==obstacleHeight:
 			loadobstacle()
 			distance=0
 		get_node("obstacles").position.y=distance*16
+	
+	if get_node("obstacles/old/obstacle"):
+		if get_node("obstacles/old/obstacle/kill").process_mode==PROCESS_MODE_INHERIT: 
+			for i in get_node("obstacles/old/obstacle/kill").get_overlapping_bodies():
+				if i.name=="left" or i.name=="right":
+					get_parent().get_node("Feet/Feet").die()

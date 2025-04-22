@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dgc3st3rd8nby"]
+[gd_scene load_steps=6 format=4 uid="uid://dgc3st3rd8nby"]
 
 [ext_resource type="Texture2D" uid="uid://b7yyab5i7kewr" path="res://obstacletextures.png" id="1_ntwrx"]
 
@@ -12,18 +12,27 @@ texture = ExtResource("1_ntwrx")
 [sub_resource type="TileSet" id="TileSet_lgmgn"]
 sources/1 = SubResource("TileSetAtlasSource_iakmd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntwrx"]
+size = Vector2(16, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iakmd"]
+size = Vector2(48, 48)
+
 [node name="2" type="Node2D"]
 
 [node name="tilemap" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_map_data = PackedByteArray("AAABAP//AQABAAEAAAAAAP//AQABAAEAAAAAAP7/AQABAAEAAAABAP7/AQABAAEAAAAAAAAAAQABAAEAAAABAAAAAQABAAEAAAD//wAAAQABAAEAAAD/////AQABAAEAAAD///7/AQABAAEAAAA=")
 tile_set = SubResource("TileSet_lgmgn")
 
 [node name="collision" type="StaticBody2D" parent="."]
 process_mode = 4
 
 [node name="shape" type="CollisionShape2D" parent="collision"]
+position = Vector2(-40, -8)
+shape = SubResource("RectangleShape2D_ntwrx")
 
 [node name="kill" type="Area2D" parent="."]
-process_mode = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_iakmd")
