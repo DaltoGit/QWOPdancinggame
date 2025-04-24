@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cqvccx46ecpcv"]
+[gd_scene load_steps=14 format=3 uid="uid://cqvccx46ecpcv"]
 
 [ext_resource type="Script" uid="uid://c4r2ee15hxp0n" path="res://player_feet.gd" id="1_7flkp"]
 [ext_resource type="Texture2D" uid="uid://cg8g6qkukqcyc" path="res://PlayerFoot.png" id="2_yxkbi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dfvdv77ppts1c" path="res://FootOutline.png" id="4_va3yr"]
 [ext_resource type="Script" uid="uid://b0inqreax8ncx" path="res://pointslabel.gd" id="5_vcyu5"]
 [ext_resource type="Script" uid="uid://20eefgro175l" path="res://xpoints.gd" id="6_e4el6"]
+[ext_resource type="FontFile" uid="uid://l320uqcgvh88" path="res://ARCADECLASSIC.TTF" id="6_tv1qo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7flkp"]
 radius = 8.0
@@ -17,13 +18,17 @@ radius = 8.0
 height = 24.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_vcyu5"]
+font = ExtResource("6_tv1qo")
 font_size = 31
 
 [sub_resource type="LabelSettings" id="LabelSettings_va3yr"]
+font = ExtResource("6_tv1qo")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tv1qo"]
+font = ExtResource("6_tv1qo")
+font_size = 23
 font_color = Color(0.498039, 0.498039, 0.498039, 1)
 
 [node name="FeetHandler" type="Node2D"]
@@ -119,9 +124,9 @@ script = ExtResource("6_e4el6")
 
 [node name="Label2" type="Label" parent="Camera2D/dead"]
 layout_mode = 0
-offset_left = -83.0
-offset_top = 50.0
-offset_right = 85.0
+offset_left = -111.0
+offset_top = 49.0
+offset_right = 138.0
 offset_bottom = 73.0
 text = "press space to restart"
 label_settings = SubResource("LabelSettings_tv1qo")

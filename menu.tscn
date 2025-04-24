@@ -1,15 +1,18 @@
-[gd_scene load_steps=8 format=4 uid="uid://dhtofubtphpv0"]
+[gd_scene load_steps=9 format=4 uid="uid://dhtofubtphpv0"]
 
 [ext_resource type="Script" uid="uid://gcv2ppm3mjbr" path="res://menu.gd" id="1_mae5d"]
 [ext_resource type="Texture2D" uid="uid://di8pc5bqtwb5r" path="res://ice.png" id="1_ouk20"]
+[ext_resource type="FontFile" uid="uid://l320uqcgvh88" path="res://ARCADECLASSIC.TTF" id="2_4hy44"]
 [ext_resource type="Texture2D" uid="uid://cg8g6qkukqcyc" path="res://PlayerFoot.png" id="2_mae5d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vsb4k"]
-font_size = 25
+font = ExtResource("2_4hy44")
+font_size = 40
 font_color = Color(0.497474, 0.497474, 0.497474, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_lti8b"]
-font_size = 38
+font = ExtResource("2_4hy44")
+font_size = 46
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4hy44"]
